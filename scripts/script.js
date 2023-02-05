@@ -126,12 +126,13 @@ function inputEquals() {
             displayValue = 'lmao';
         } else {
             //Changed the default display value to my scientific notation one
-            if(result.toString().length <= 8){
-                displayValue = result.toString();
+            if(result <= 999999999){
+                displayValue = roundAccurately(result, 8).toString();
             }
             else{
-                result = result/(Math.pow(10, (result.toString().length-1)));
-                displayValue = roundAccurately(result, 4).toString() + 'e' + (result.toString().length);
+                len = (result.toString().length-1);
+                result = result/(Math.pow(10, (len)));
+                displayValue = roundAccurately(result, 4).toString() + 'e' + len;
             }
             firstOperand = displayValue;
             secondOperand = null;
@@ -232,18 +233,19 @@ function inputSqrt(num){
 }
 
 function inputFactorial(num){
-    var sum = 1;
+    var result = 1;
     //First we do the factorial
     for(let i = 1; i <= num; i++){
-        sum = sum*i;
+        result = result*i;
     }
     //If the number is small enough we just display it
-    if(sum.toString().length <= 8){
-        displayValue = sum.toString();
+    if(result <= 999999999){
+        displayValue = roundAccurately(result, 8).toString();
     }
     //If the number is too large we convert it to scientific notation instead to fit
     else{
-        sum = sum/(Math.pow(10, (sum.toString().length - 1)));
-        displayValue = roundAccurately(sum, 4).toString() + 'e' + (sum.toString().length);
+        len = (result.toString().length-1);
+        result = result/(Math.pow(10, (len)));
+        displayValue = roundAccurately(result, 4).toString() + 'e' + len;
     }
 }
