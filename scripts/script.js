@@ -180,6 +180,10 @@ function operate(x, y, op) {
         } else {
         return x / y;
         }
+    } else if(op === '%'){
+        return x % y;
+    } else if(op === '^'){
+        return Math.pow(x,y);
     }
 }
 
@@ -200,11 +204,11 @@ function inputNewButtons(val){
 }
 
 function inputPow(){
-
+    inputOperator('^')
 }
 
 function inputModulo(){
-
+    inputOperator('%');
 }
 
 function inputSqrt(num){
