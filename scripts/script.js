@@ -45,6 +45,7 @@ function clickButton() {
                 clearDisplay();
                 updateDisplay();
             } else if(buttons[i].classList.contains('newbuttons')) {
+                //Follows the logic of the other buttons to implement my new Buttons
                 inputNewButtons(buttons[i].value);
                 updateDisplay();
             }
@@ -181,8 +182,10 @@ function operate(x, y, op) {
         return x / y;
         }
     } else if(op === '%'){
+        //Adds the modulo operator using the logic of operate
         return x % y;
     } else if(op === '^'){
+        //Adds the power operator using the logic of operate
         return Math.pow(x,y);
     }
 }
@@ -192,6 +195,7 @@ function roundAccurately(num, places) {
 }
 
 function inputNewButtons(val){
+    //Checks the value of val and applies the appropriate function to use
     if(val == 'pow'){
         inputPow();
     } else if(val == 'modulo'){
@@ -204,10 +208,12 @@ function inputNewButtons(val){
 }
 
 function inputPow(){
+    //Extends functionality of Operate
     inputOperator('^')
 }
 
 function inputModulo(){
+    //Extends functionality of Operate
     inputOperator('%');
 }
 
