@@ -189,12 +189,31 @@ function roundAccurately(num, places) {
 
 function inputNewButtons(val){
     if(val == 'pow'){
-
+        inputPow();
     } else if(val == 'modulo'){
-
+        inputModulo();
     } else if(val == 'sqrt'){
-
+        inputSqrt(displayValue);
     } else if(val == 'factorial'){
-        
+        inputFactorial(displayValue);
     }
+}
+
+function inputPow(){
+
+}
+
+function inputModulo(){
+
+}
+
+function inputSqrt(num){
+    //First the Square Root is calculated
+    sqrt = Math.sqrt(num)
+    //Then it uses roundAccurately to make sure the result fits on the calculator
+    displayValue = roundAccurately(sqrt, (8-Math.round(sqrt).toString().length));
+}
+
+function inputFactorial(){
+
 }
