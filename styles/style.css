@@ -109,8 +109,10 @@ button {
     background-color: rgb(123, 189, 255);
 }
 .newbuttons {
+    font-weight:bold;
     background-color:aqua;
 }
 .newbuttons:active {
+    font-weight:bold;
     background-color:cornflowerblue;
 }

@@ -125,7 +125,14 @@ function inputEquals() {
         if(result === 'lmao') {
             displayValue = 'lmao';
         } else {
-            displayValue = roundAccurately(result, 15).toString();
+            //Changed the default display value to my scientific notation one
+            if(result.toString().length <= 8){
+                displayValue = result.toString();
+            }
+            else{
+                result = result/(Math.pow(10, (result.toString().length-1)));
+                displayValue = roundAccurately(result, 4).toString() + 'e' + (result.toString().length);
+            }
             firstOperand = displayValue;
             secondOperand = null;
             firstOperator = null;
@@ -225,10 +232,10 @@ function inputSqrt(num){
 }
 
 function inputFactorial(num){
-    var sum = 0;
+    var sum = 1;
     //First we do the factorial
     for(let i = 1; i <= num; i++){
-        sum += i;
+        sum = sum*i;
     }
     //If the number is small enough we just display it
     if(sum.toString().length <= 8){
@@ -237,6 +244,6 @@ function inputFactorial(num){
     //If the number is too large we convert it to scientific notation instead to fit
     else{
         sum = sum/(Math.pow(10, (sum.toString().length - 1)));
-        displayValue = roundAccurately(sum, 4).toString() + 'e' + sum.toString().length;
+        displayValue = roundAccurately(sum, 4).toString() + 'e' + (sum.toString().length);
     }
 }
