@@ -214,6 +214,19 @@ function inputSqrt(num){
     displayValue = roundAccurately(sqrt, (8-Math.round(sqrt).toString().length));
 }
 
-function inputFactorial(){
-
+function inputFactorial(num){
+    var sum = 0;
+    //First we do the factorial
+    for(let i = 1; i <= num; i++){
+        sum += i;
+    }
+    //If the number is small enough we just display it
+    if(sum.toString().length <= 8){
+        displayValue = sum.toString();
+    }
+    //If the number is too large we convert it to scientific notation instead to fit
+    else{
+        sum = sum/(Math.pow(10, (sum.toString().length - 1)));
+        displayValue = roundAccurately(sum, 4).toString() + 'e' + sum.toString().length;
+    }
 }
